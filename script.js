@@ -30,7 +30,7 @@ document.getElementById('start').addEventListener('click', ()=>{
 
     // UI updates
     // Create an array of span elements so we can set a class
-    const spanWords = words.map((word)=>{return '<span>${word} </span>'}) /* Span tag is used to markup a part of a text, or a part of a document
+    const spanWords = words.map((word)=>{return `<span>${word} </span>`}) /* Span tag is used to markup a part of a text, or a part of a document
     .map methods return a new array populated with the results of calling a provided function on every element in the calling array. */
     // Convert into string and set as innerHTML on quote display
     quoteElement.innerHTML = spanWords.join(''); /* The join method returns a string created by concatenating all of the elements in an array 
@@ -62,7 +62,7 @@ typedValueElement.addEventListener('input', () => {
         // Case: end of the sentence
         // Display success
         const elapsedTime = new Date().getTime - startTime;
-        const message = 'Congratulations! You have finsihed in ${elapsedTime / 1000} seconds.';
+        const message = `Congratulations! You have finsihed in ${elapsedTime / 1000} seconds.`;
         messageElement.innerText = message;
     } else if (typedValue.endsWith(' ') && typedValue.trim() === currentWord){
         // Case: end of word
