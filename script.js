@@ -18,6 +18,7 @@ const quoteElement = document.getElementById('quote');
 const messageElement = document.getElementById('message');
 const typedValueElement = document.getElementById('typed-value');
 
+// This event listener will be triggered when the player click on start. It will show a quote, reset all the element on the UI and the words array
 document.getElementById('start').addEventListener('click', ()=>{
     // get a quote
     const quoteIndex = Math.floor(Math.random() * quotes.length); // Math.random returns a number in interval [0,1) we perform * max to scale that number
@@ -49,3 +50,38 @@ document.getElementById('start').addEventListener('click', ()=>{
     // Start the timer
     startTime = new Date().getTime;
 })
+
+// This event listener will handle the current status of the game and it'll check if the player is typing the word correctly
+typedValueElement.addEventListener('input', () => {
+    // Get the current word
+    const currentWord = words[wordIndex];
+    // Get the current value
+    const typedValue = typedValueElement.value;
+
+    if(typedValue === currentWord && wordIndex === words.length - 1){
+        // Case: end of the sentence
+        // Display success
+        const elapsedTime = new Date().getTime - startTime;
+        const message = 'Congratulations! You have finsihed in ${elapsedTime / 1000} seconds.';
+        messageElement.innerText = message;
+    } else if (typedValue.endsWith(' ') && typedValue.trim() === currentWord){
+        // Case: end of word
+        // Clear the typedValueElement for the new word
+        typedValueElement.value = '';
+        // Move to the next word
+        wordIndex++;
+        // reset the class name for all elements in quote
+        for (const wordElement of quoteElement.childNodes) {
+            wordElement.className = '';
+        }
+        // Highlight the new word
+        quoteElement.childNodes[wordIndex].className = 'highlight';
+    } else if (currentWord.startsWith(typedValue)){
+        // Case: currently correct
+        // Highlight the next word
+        typedValueElement.className = '';
+    } else {
+        // Case: error
+        typedValueElement.className = 'error';
+    }
+});
