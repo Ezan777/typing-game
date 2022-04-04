@@ -48,7 +48,7 @@ document.getElementById('start').addEventListener('click', ()=>{
     // Set the event handler
 
     // Start the timer
-    startTime = new Date().getTime;
+    startTime = new Date().getTime();
 })
 
 // This event listener will handle the current status of the game and it'll check if the player is typing the word correctly
@@ -61,7 +61,7 @@ typedValueElement.addEventListener('input', () => {
     if(typedValue === currentWord && wordIndex === words.length - 1){
         // Case: end of the sentence
         // Display success
-        const elapsedTime = new Date().getTime - startTime;
+        const elapsedTime = new Date().getTime() - startTime;
         const message = `Congratulations! You have finsihed in ${elapsedTime / 1000} seconds.`;
         messageElement.innerText = message;
     } else if (typedValue.endsWith(' ') && typedValue.trim() === currentWord){
