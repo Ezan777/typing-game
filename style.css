@@ -1,5 +1,15 @@
+:root {
+    --green: #0dff00;
+    --black: #000000;
+    --white: #ffffff;
+}
+
+* {
+    color: var(--fontColor);
+}
+
 h1 {
-    color: rgb(0, 98, 255);
+    color: var(--titleColor);
     font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
     text-align: center;
     font-size: 40px;
@@ -12,11 +22,45 @@ p {
     font-size: 18px;
 }
 
+body {
+    background-color: var(--bg);
+}
+
+button {
+    background-color: var(--btnsColor);
+    color: var(--btnsFontColor);
+}
+
+button:focus  {outline-style: none;}
+
 .highlight {
-    background-color: yellow;
+    background-color: var(--highlightedColor);
+    text-decoration: var(--highlightedDecoration);
 }
 
 .error {
     background-color: lightcoral;
     border: red;
+}
+
+.light-theme {
+    --bg: var(--white);
+    --fontColor: var(var(--black));
+    --titleColor: rgb(0, 98, 255);
+    --highlightedColor: yellow;
+}
+
+.dark-theme {
+    --bg: var(--black);
+    --fontColor: var(--white);
+    --titleColor: var(--green);
+    --btnsColor: var(--green);
+    --btnsFontColor: var(--black);
+    --typedValueColor: var(--black);
+    --highlightedColor: var(--bg);
+    --highlightedDecoration: underline yellow 2px;
+}
+
+#typed-value {
+    color: var(--typedValueColor);
 }
