@@ -45,7 +45,7 @@ button:focus  {outline-style: none;}
 
 .light-theme {
     --bg: var(--white);
-    --fontColor: var(var(--black));
+    --fontColor: var(--black);
     --titleColor: rgb(0, 98, 255);
     --highlightedColor: yellow;
 }
@@ -59,6 +59,13 @@ button:focus  {outline-style: none;}
     --typedValueColor: var(--black);
     --highlightedColor: var(--bg);
     --highlightedDecoration: underline yellow 2px;
+}
+
+#theme-button {
+    position: absolute;
+    right: 5%;
+    top: 5%;
+    border-radius: 1rem;
 }
 
 #typed-value {
