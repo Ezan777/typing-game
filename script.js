@@ -91,3 +91,16 @@ document.getElementById('start').addEventListener('click', ()=>{
     // Start the input listener
     typedValueElement.addEventListener('input', onInput);
 })
+
+// Theme changer
+const themeButton = document.getElementById('theme-button');
+themeButton.addEventListener('click', () => {
+    let theme = document.body.className;
+    if(theme === 'light-theme'){
+        document.body.className = 'dark-theme';
+        themeButton.innerHTML = 'Light';
+    } else {
+        document.body.className = 'light-theme';
+        themeButton.innerHTML = 'Dark';
+    }
+})

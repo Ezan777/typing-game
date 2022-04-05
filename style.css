@@ -2,6 +2,7 @@
     --green: #0dff00;
     --black: #000000;
     --white: #ffffff;
+    --lightBlue: rgb(0, 98, 255);
 }
 
 * {
@@ -29,6 +30,8 @@ body {
 button {
     background-color: var(--btnsColor);
     color: var(--btnsFontColor);
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    border: var(--btnsBorder);
 }
 
 button:focus  {outline-style: none;}
@@ -46,8 +49,9 @@ button:focus  {outline-style: none;}
 .light-theme {
     --bg: var(--white);
     --fontColor: var(--black);
-    --titleColor: rgb(0, 98, 255);
+    --titleColor: var(--lightBlue);
     --highlightedColor: yellow;
+    --btnsBorder: 2px solid var(--lightBlue);
 }
 
 .dark-theme {
@@ -56,6 +60,7 @@ button:focus  {outline-style: none;}
     --titleColor: var(--green);
     --btnsColor: var(--green);
     --btnsFontColor: var(--black);
+    --btnsBorder: none;
     --typedValueColor: var(--black);
     --highlightedColor: var(--bg);
     --highlightedDecoration: underline yellow 2px;
@@ -66,6 +71,7 @@ button:focus  {outline-style: none;}
     right: 5%;
     top: 5%;
     border-radius: 1rem;
+    padding: 4px 8px;
 }
 
 #typed-value {
