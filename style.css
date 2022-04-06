@@ -20,7 +20,7 @@ h1 {
 }
 
 p {
-    font-family: Raleway-thin;
+    font-family: 'Raleway', sans-serif;
     margin-top: 2.5%;
     margin-bottom: 2.5%;
     font-size: 18px;
@@ -33,7 +33,7 @@ body {
 button {
     background-color: var(--btnsColor);
     color: var(--btnsFontColor);
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-family: 'Raleway', sans-serif;
     border: var(--btnsBorder);
     border-radius: 1rem;
 }
