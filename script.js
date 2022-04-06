@@ -98,9 +98,9 @@ themeButton.addEventListener('click', () => {
     let theme = document.body.className;
     if(theme === 'light-theme'){
         document.body.className = 'dark-theme';
-        themeButton.innerHTML = `<span class="material-icons-outlined colored">dark_mode</span>`;
+        themeButton.innerHTML = `<span class='material-icons-outlined colored'>light_mode</span>`;
     } else {
         document.body.className = 'light-theme';
-        themeButton.innerHTML = `<span class='material-icons-outlined colored'>light_mode</span>`;
+        themeButton.innerHTML = `<span class="material-icons-outlined colored">dark_mode</span>`;
     }
 })
