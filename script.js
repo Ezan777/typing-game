@@ -14,7 +14,6 @@ let words = [];
 let wordIndex = 0;
 // Variable to save the starting time
 let startTime = Date.now;
-console.log(localStorage.getItem('ollare'))
 //Save the page elements
 const quoteElement = document.getElementById('quote');
 const messageElement = document.getElementById('message');
@@ -26,6 +25,7 @@ function showResultModal() {
     const usernameBox = document.getElementById('username'); 
     const saveMessage = document.getElementById('save-result');
     const saveButton = document.getElementById("save-button");
+    const localStorageSize = Object.keys(localStorage).length;
 
     usernameBox.className = '';
     usernameBox.focus();
@@ -47,7 +47,13 @@ function showResultModal() {
             usernameBox.className = 'error';
         } else {
             const username = usernameBox.value;
-            localStorage.setItem(username, elapsedTime/1000);
+            if(localStorageSize >= 10){
+                const lastScoreKey = localStorage.key(Math.floor(Math.random() * 10));
+                localStorage.removeItem(lastScoreKey);
+                localStorage.setItem(username,elapsedTime/1000);
+            } else {
+                localStorage.setItem(username, elapsedTime/1000);
+            }
             saveButton.style.display = 'none';
             usernameBox.style.display = 'none';
             usernameBox.value = '';
@@ -59,6 +65,12 @@ function showResultModal() {
 
 function hideResultModal() {
     document.getElementById('result-modal').style.display = "none";
+}
+
+function hideSavedModal() {
+    document.getElementById('saved-modal').style.display = 'none';
+    document.getElementById('saved-title').style.display = 'none';
+    document.getElementById('show-scores').style.display = 'block';
 }
 
 // Handle what happens while the player is typing
@@ -155,6 +167,23 @@ themeButton.addEventListener('click', () => {
     }
 })
 
-// Close modal
+// Close modals
 const modalButton = document.getElementById("close-modal");
 modalButton.addEventListener('click', hideResultModal);
+
+const closeSavedModal = document.getElementById("close-saved");
+closeSavedModal.addEventListener('click', hideSavedModal);
+
+// Show saved scores
+const showScoresButton = document.getElementById('show-scores');
+showScoresButton.addEventListener('click', () => {
+    showScoresButton.style.display = 'none';
+    document.getElementById('saved-title').style.display = 'block';
+    document.getElementById('saved-modal').style.display = 'block';
+    for(let i = 0; i < 10; ++i){
+        if(localStorage.key(i) != null){
+            const scoreParagraph = document.getElementById(`score${i+1}`);
+            scoreParagraph.innerText = `${localStorage.key(i)}: ${localStorage.getItem(localStorage.key(i))}`
+        }
+    }
+});

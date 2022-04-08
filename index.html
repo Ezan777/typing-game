@@ -26,7 +26,7 @@
     <p>Practice your typing skills with a quote from Sherlock Holmes. Click <b>start</b> to begin!</p>
     <p id="quote"></p> <!-- This will display our quote -->
     <p id="message"></p> <!-- This will display any status message -->
-    <div id='start-div'>
+    <div id='start-div' class="centred-items-div">
         <input type="text" aria-label="current word" id="typed-value"/> <!-- This is the textbox for typing -->
         <button type="button" id="start">Start</button>
     </div>
@@ -39,12 +39,33 @@
     <!-- Modal box for the result -->
     <div id="result-modal" class="modal-box">
         <div class = "modal-content">
-            <button id = "close-modal" class = "material-icons-outlined colored">close</button>
+            <button id = "close-modal" class = "material-icons-outlined close-buttons">close</button>
             <p id = "result-text"></p> <!-- Text that will be displayed at the end of the game -->
             <p id = "username-alert">Insert a username to save this score:</p>
             <input type="text" aria-label="username" id="username"/>
             <button id = 'save-button'><span class = "material-icons-outlined colored">save</span></button>
             <p id="save-result"></p>
+        </div>
+    </div>
+
+    <!-- Button and modal to show saved scores -->
+    <div class="centred-items-div"> 
+        <button id="show-scores">Show saved scores</button>
+        <h2 id="saved-title">Saved scores</h2>
+    </div>
+    <div id="saved-modal" class="modal-box">
+        <div class="modal-content">
+            <button id = "close-saved" class = "material-icons-outlined close-buttons">close</button>
+            <p id="score1" class="score-paragraph"></p>
+            <p id="score2" class="score-paragraph"></p>
+            <p id="score3" class="score-paragraph"></p>
+            <p id="score4" class="score-paragraph"></p>
+            <p id="score5" class="score-paragraph"></p>
+            <p id="score6" class="score-paragraph"></p>
+            <p id="score7" class="score-paragraph"></p>
+            <p id="score8" class="score-paragraph"></p>
+            <p id="score9" class="score-paragraph"></p>
+            <p id="score10" class="score-paragraph"></p>
         </div>
     </div>
 </body>

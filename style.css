@@ -4,6 +4,7 @@
     --blackBg: #0e0e10;
     --white: #ffffff;
     --lightBlue: rgb(0, 98, 255);
+    --lightPurple: #e800f0;
 }
 
 * {
@@ -65,6 +66,8 @@ button:focus  {outline-style: none;}
     --titleBorderColor: var(--lightBlue);
     --iconsColor: var(--lightBlue);
     --modalBorder: 2px solid var(--lightBlue);
+    --savedBorders: 2px solid var(--lightPurple);
+    --showSavedBg: var(--lightPurple);
 }
 
 .dark-theme {
@@ -80,6 +83,8 @@ button:focus  {outline-style: none;}
     --titleBorderColor: var(--green);
     --iconsColor: var(--black);
     --modalBorder: 2px solid var(--green);
+    --savedBorders: 2px solid var(--lightPurple);
+    --showSavedBg: var(--lightPurple);
 }
 
 .material-icons-outlined.colored {
@@ -102,6 +107,24 @@ button:focus  {outline-style: none;}
     flex-direction: column;
 }
 
+.centred-items-div {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.close-buttons {
+    background-color: red;
+    border: 2px solid red;
+    color: black;
+}
+
+.score-paragraph {
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    margin: 2% 0 0 0;
+}
+
 #start {
     min-width: 5%;
     font-size: large;
@@ -115,13 +138,6 @@ button:focus  {outline-style: none;}
     /* Hidden by default */
     display: none;
     margin-bottom: 0.7%;
-}
-
-#start-div {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
 }
 
 #theme-button {
@@ -149,4 +165,28 @@ button:focus  {outline-style: none;}
 
 #save-result {
     display: none;
+}
+
+#show-scores {
+    margin: 10% auto auto auto;
+    font-size: large;
+    padding: 1%;
+    background-color: var(--showSavedBg);
+    border: var(--savedBorders);
+}
+
+#saved-modal {
+    border: var(--savedBorders);
+}
+
+#saved-title {
+    display: none;
+    color: #e800f0;
+    font-family: Roobert, Inter, Helvetica Neue, Helvetica, Arial, sans-serif;
+    font-size: 28px;
+    margin: 10% auto auto auto;
+}
+
+#close-saved {
+    align-self: flex-end;
 }
