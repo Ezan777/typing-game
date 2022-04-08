@@ -28,6 +28,7 @@ function showResultModal() {
     const saveButton = document.getElementById("save-button");
 
     usernameBox.className = '';
+    usernameBox.focus();
 
     modalBox.style.display = "block";
     usernameBox.style.display = "block";

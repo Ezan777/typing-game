@@ -40,6 +40,10 @@ button {
     border-radius: 1rem;
 }
 
+input {    
+    color : var(--typedValueColor);
+}
+
 button:focus  {outline-style: none;}
 
 .highlight {
@@ -111,7 +115,6 @@ button:focus  {outline-style: none;}
     /* Hidden by default */
     display: none;
     margin-bottom: 0.7%;
-    color : var(--typedValueColor);
 }
 
 #start-div {
