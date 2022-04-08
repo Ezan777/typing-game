@@ -27,13 +27,21 @@
     <p id="quote"></p> <!-- This will display our quote -->
     <p id="message"></p> <!-- This will display any status message -->
     <div id='start-div'>
-        <input type="text" aria-label="current word" id="typed-value" class="hide"/> <!-- This is the textbox for typing -->
+        <input type="text" aria-label="current word" id="typed-value"/> <!-- This is the textbox for typing -->
         <button type="button" id="start">Start</button>
     </div>
     <div>
         <button type="button" id="theme-button">
             <span class="material-icons-outlined colored">light_mode</span>
         </button>
+    </div>
+    
+    <!-- Modal box for the result -->
+    <div id="result-modal" class="modal-box">
+        <div class = "modal-content">
+            <button id = "close-modal" class = "material-icons-outlined colored">close</button>
+            <p id = "result-text"></p> <!-- Text that will be displayed at the end of the game -->
+        </div>
     </div>
 </body>
 </html>

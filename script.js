@@ -36,7 +36,7 @@ function onInput() {
         // Reset the textbox value to empty string because the game is finished
         this.value = '';
         // Remove the textbox
-        typedValueElement.className = "hide";
+        typedValueElement.style.display = "none";
         // Remove the input listener
         this.removeEventListener('input', onInput);
     } else if (typedValue.endsWith(' ') && typedValue.trim() === currentWord){
@@ -83,7 +83,7 @@ document.getElementById('start').addEventListener('click', ()=>{
     //Clear any prior message
     messageElement.innerText = '';
     // Show the textbox
-    typedValueElement.className = "show";
+    typedValueElement.style.display = "inline";
 
     // Setup the textbox
     // Clear the textbox
