@@ -79,8 +79,17 @@ button:focus  {outline-style: none;}
     color: var(--iconsColor);
 }
 
+.hide {
+    display: none;
+}
+
+.show {
+    display: inline;
+}
+
 #typed-value {
     margin-bottom: 0.7%;
+    color : var(--typedValueColor);
 }
 
 #start-div {
@@ -95,8 +104,4 @@ button:focus  {outline-style: none;}
     right: 5%;
     top: 5%;
     padding: 4px 8px;
-}
-
-#typed-value {
-    color: var(--typedValueColor);
 }

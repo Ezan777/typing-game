@@ -18,6 +18,7 @@ const quoteElement = document.getElementById('quote');
 const messageElement = document.getElementById('message');
 const typedValueElement = document.getElementById('typed-value');
 
+// Handle what happens while the player is typing
 function onInput() {
     // Get the current word
     const currentWord = words[wordIndex];
@@ -32,6 +33,8 @@ function onInput() {
         messageElement.innerText = message;
         // Reset the textbox value to empty string because the game is finished
         this.value = '';
+        // Remove the textbox
+        typedValueElement.className = "hide";
         // Remove the input listener
         this.removeEventListener('input', onInput);
     } else if (typedValue.endsWith(' ') && typedValue.trim() === currentWord){
@@ -77,6 +80,8 @@ document.getElementById('start').addEventListener('click', ()=>{
     quoteElement.childNodes[0].className = 'highlight';
     //Clear any prior message
     messageElement.innerText = '';
+    // Show the textbox
+    typedValueElement.className = "show";
 
     // Setup the textbox
     // Clear the textbox
