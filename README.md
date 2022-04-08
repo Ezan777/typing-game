@@ -6,4 +6,4 @@ As each word is completed, the next one is highlighted
 If the player has a typo, the textbox is updated to red
 When the player completes the quote, a success message is displayed with the elapsed time
 
-Credit: web-dev-for-begginers
+Credit: https://github.com/microsoft/Web-Dev-For-Beginners
