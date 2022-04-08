@@ -31,6 +31,8 @@ function onInput() {
         const elapsedTime = new Date().getTime() - startTime;
         const message = `Congratulations! You have finsihed in ${elapsedTime / 1000} seconds.`;
         messageElement.innerText = message;
+        // Remove higlight from the last word
+        quoteElement.childNodes[wordIndex].className = "";
         // Reset the textbox value to empty string because the game is finished
         this.value = '';
         // Remove the textbox
