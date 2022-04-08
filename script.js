@@ -14,6 +14,7 @@ let words = [];
 let wordIndex = 0;
 // Variable to save the starting time
 let startTime = Date.now;
+console.log(localStorage.getItem('ollare'))
 //Save the page elements
 const quoteElement = document.getElementById('quote');
 const messageElement = document.getElementById('message');
@@ -22,13 +23,37 @@ const typedValueElement = document.getElementById('typed-value');
 function showResultModal() {
     const modalBox = document.getElementById('result-modal');
     const modalText = document.getElementById('result-text');
+    const usernameBox = document.getElementById('username'); 
+    const saveMessage = document.getElementById('save-result');
+    const saveButton = document.getElementById("save-button");
+
+    usernameBox.className = '';
 
     modalBox.style.display = "block";
+    usernameBox.style.display = "block";
+    saveButton.style.display = 'block';
+    saveMessage.style.display = 'none';
     
-    const elapsedTime = new Date().getTime() - startTime;
+    var elapsedTime = new Date().getTime() - startTime;
     const message = `Congratulations! You have finished in ${elapsedTime / 1000} seconds.`;
 
     modalText.innerText = message;
+
+    // Save button event handler
+    saveButton.addEventListener('click', () => {
+        if(usernameBox.value === ''){
+            // There isn't a username
+            usernameBox.className = 'error';
+        } else {
+            const username = usernameBox.value;
+            localStorage.setItem(username, elapsedTime/1000);
+            saveButton.style.display = 'none';
+            usernameBox.style.display = 'none';
+            usernameBox.value = '';
+            saveMessage.innerText = `Saved as ${username}`;
+            saveMessage.style.display = 'block';
+        }
+    });
 }
 
 function hideResultModal() {

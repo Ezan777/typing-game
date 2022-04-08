@@ -134,12 +134,16 @@ button:focus  {outline-style: none;}
 }
 
 #username {
-    display: none;
+    /* display: none; */
     margin: auto auto 1% auto;
     align-self: center;
 }
 
 #username-alert {
-    display: none;
+    /* display: none; */
     margin: auto auto 1% auto;
+}
+
+#save-result {
+    display: none;
 }
