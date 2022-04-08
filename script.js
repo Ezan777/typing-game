@@ -1,4 +1,5 @@
 const quotes = [
+    /*
     'When you have eliminated the impossible, whatever remains, however improbable, must be the truth.',
     'There is nothing more deceptive than an obvious fact.',
     'I ought to know by this time that when a fact appears to be opposed to a long train of deductions it invariably proves to be capable of bearing some other interpretation.',
@@ -6,7 +7,8 @@ const quotes = [
     'What one man can invent another can discover.',
     'Nothing clears up a case so much as stating it to another person.',
     'Education never ends, Watson. It is a series of lessons, with the greatest for the last.',
-    'London, that great cesspool into which all the loungers and idlers of the Empire are irresistibly drained.',
+    'London, that great cesspool into which all the loungers and idlers of the Empire are irresistibly drained.',*/
+    'oro giallo'
 ];
 // Variables needed to store the list of words and the index of the word the player is currently typing
 let words = [];
@@ -18,6 +20,22 @@ const quoteElement = document.getElementById('quote');
 const messageElement = document.getElementById('message');
 const typedValueElement = document.getElementById('typed-value');
 
+function showResultModal() {
+    const modalBox = document.getElementById('result-modal');
+    const modalText = document.getElementById('result-text');
+
+    modalBox.style.display = "block";
+    
+    const elapsedTime = new Date().getTime() - startTime;
+    const message = `Congratulations! You have finished in ${elapsedTime / 1000} seconds.`;
+
+    modalText.innerText = message;
+}
+
+function hideResultModal() {
+    document.getElementById('result-modal').style.display = "none";
+}
+
 // Handle what happens while the player is typing
 function onInput() {
     // Get the current word
@@ -28,9 +46,7 @@ function onInput() {
     if(typedValue === currentWord && wordIndex === words.length - 1){
         // Case: end of the sentence
         // Display success
-        const elapsedTime = new Date().getTime() - startTime;
-        const message = `Congratulations! You have finsihed in ${elapsedTime / 1000} seconds.`;
-        messageElement.innerText = message;
+        showResultModal();
         // Remove higlight from the last word
         quoteElement.childNodes[wordIndex].className = "";
         // Reset the textbox value to empty string because the game is finished
@@ -63,6 +79,8 @@ function onInput() {
 
 // This event listener will be triggered when the player click on start. It will show a quote, reset all the element on the UI and the words array
 document.getElementById('start').addEventListener('click', ()=>{
+    // Hide the modal box if there was a previous game
+    hideResultModal();
     // get a quote
     const quoteIndex = Math.floor(Math.random() * quotes.length); // Math.random returns a number in interval [0,1) we perform * max to scale that number
     const quote = quotes[quoteIndex];
@@ -111,3 +129,7 @@ themeButton.addEventListener('click', () => {
         themeButton.innerHTML = `<span class="material-icons-outlined colored">dark_mode</span>`;
     }
 })
+
+// Close modal
+const modalButton = document.getElementById("close-modal");
+modalButton.addEventListener('click', hideResultModal);

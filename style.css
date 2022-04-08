@@ -28,6 +28,7 @@ p {
 }
 
 body {
+    display: flexbox;
     background-color: var(--bg);
 }
 
@@ -59,6 +60,7 @@ button:focus  {outline-style: none;}
     --btnsBorder: 2px solid var(--lightBlue);
     --titleBorderColor: var(--lightBlue);
     --iconsColor: var(--lightBlue);
+    --modalBorder: 2px solid var(--lightBlue);
 }
 
 .dark-theme {
@@ -73,6 +75,7 @@ button:focus  {outline-style: none;}
     --highlightedDecoration: underline yellow 2px;
     --titleBorderColor: var(--green);
     --iconsColor: var(--black);
+    --modalBorder: 2px solid var(--green);
 }
 
 .material-icons-outlined.colored {
@@ -81,19 +84,17 @@ button:focus  {outline-style: none;}
 
 .modal-box {
     display: none;
-    position: absolute;
-    top: 50%;
-    left: 50%;
+    background-color: var(--bg);
+    margin: 5% auto auto auto;
+    width: 50%;
     z-index: 1;
+    border: var(--modalBorder);
+    padding: 2%;
 }
 
-/* .hide {
-    display: none;
+#close-modal {
+    float: right;
 }
-
-.show {
-    display: inline;
-} */
 
 #typed-value {
     /* Hidden by default */
